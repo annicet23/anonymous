@@ -1,0 +1,118 @@
+/* Contenu pour src/components/IncognitoSwap.css (Adapté à App.css) */
+
+/*
+ * NOTE: Ce fichier ne contient plus de styles de base (inputs, boutons, card).
+ * Ces styles sont maintenant hérités de App.css pour une cohérence globale.
+ * Seuls les styles spécifiques à ce composant sont conservés et adaptés.
+ */
+
+.incognito-header {
+    display: flex;
+    align-items: center;
+    /* Le titre h2 est déjà stylé par .card h2 dans App.css */
+    /* On retire la bordure pour se conformer au style de .card h2 */
+    margin-bottom: 1rem;
+}
+
+.incognito-header h2 {
+    /* On retire la couleur spécifique pour utiliser celle de .card h2 */
+    margin: 0 0 0 1rem;
+    padding-bottom: 0;
+    border-bottom: none;
+    /* On peut lier la couleur à la couleur primaire du thème */
+    color: var(--primary-color);
+}
+
+.incognito-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.warning-text {
+    /* Utilisation des variables pour un style cohérent */
+    background-color: rgba(239, 68, 68, 0.05); /* Fond basé sur --danger-color */
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Les styles pour .form-group, label, select, input sont dans App.css */
+
+.current-info {
+    grid-column: span 2;
+    text-align: center;
+    background: var(--background-color);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary-color);
+    font-size: 1rem;
+}
+
+.current-info strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Les styles .btn-search et .btn-swap sont remplacés par .btn, .btn-primary, .btn-danger dans App.css */
+
+.error-message {
+    color: var(--danger-color);
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+
+.suggestions-section {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.suggestions-section h3 {
+    font-size: 1.3em;
+    color: var(--text-primary-color);
+    margin-bottom: 1rem;
+}
+
+.suggestions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.suggestions-table th,
+.suggestions-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary-color);
+}
+
+.suggestions-table th {
+    color: var(--text-secondary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.suggestions-table .note-value {
+    font-weight: bold;
+    font-size: 1.1rem;
+    /* Utilisation de la variable --success-color pour la cohérence */
+    color: var(--success-color);
+}
+
+/* Les styles pour la modale de log n'ont pas été modifiés car ils n'apparaissent pas dans le composant JS fourni */
+/* Si vous les utilisez, ils devront aussi être adaptés avec les variables de App.css */

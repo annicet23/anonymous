@@ -1,0 +1,770 @@
+/* --- Styles pour la modale CV - Version Améliorée --- */
+
+/* Superposition de fond */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Conteneur principal de la modale */
+.student-modal-cv-content {
+    background-color: #f4f7fc; /* Un gris très clair et doux */
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Grille principale du CV (2 colonnes) */
+.cv-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Colonne de gauche fixe, droite flexible */
+    gap: 30px;
+    padding: 30px;
+}
+
+/* Bouton pour fermer */
+.cv-close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #9fa2b4;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.cv-close-button:hover { color: #f44336; }
+
+/* --- Colonne de Gauche (Profil) --- */
+.cv-profile-column {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cv-avatar-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.cv-avatar {
+    /* MODIFIÉ : Image agrandie */
+    width: 250px;
+    height: 250px;
+    border-radius: 5%;
+    border: 2px solid #3751ff; /* Accent de couleur */
+    object-fit: cover; /* Assure que l'image remplit bien le cercle */
+}
+
+.cv-title-eg {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #3751ff;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.cv-student-name {
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #252733;
+    margin: 5px 0 25px 0;
+}
+
+.cv-info-list .info-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #4a4a4a;
+    font-size: 0.95em;
+}
+.cv-info-list .info-line i {
+    color: #3751ff;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+/* --- Colonne de Droite (Contenu) --- */
+.cv-main-column .cv-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cv-section-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #252733;
+    margin: 0 0 20px 0;
+    border-bottom: 2px solid #dfe0eb;
+    padding-bottom: 10px;
+}
+.cv-section-title i {
+    margin-right: 15px;
+    color: #3751ff;
+}
+
+/* NOUVEAU : Style pour la moyenne générale */
+.cv-average-display {
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: #555;
+}
+/* NOUVEAU : Style pour la moyenne < 12 */
+.cv-average-display.average-fail {
+    background-color: rgba(229, 57, 53, 0.1); /* Fond rouge doux */
+    color: #e53935; /* Texte rouge foncé */
+    padding: 5px 12px;
+    border-radius: 8px; /* Bords arrondis */
+    display: inline-block; /* Pour que le fond n'occupe pas toute la ligne */
+}
+
+/* Grille des notes qui s'adapte à la page */
+.notes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
+}
+.note-item {
+    background-color: #f4f7fc;
+    border: 1px solid #dfe0eb;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    flex-basis: 120px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.note-subject {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+.note-score {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #252733;
+}
+.note-score.na {
+    font-size: 1em;
+    color: #9fa2b4;
+}
+/* NOUVEAU : Style pour les notes < 12 */
+.note-score.low-score {
+    color: #e53935; /* Rouge foncé */
+}
+
+/* Section Informations externes */
+.external-info-item { margin-bottom: 15px; }
+.external-info-item:last-child { margin-bottom: 0; }
+.external-info-item h5 { font-weight: bold; color: #555; margin: 0 0 5px 0; }
+/* --- Styles pour la liste des consultations (à ajouter à la fin de StudentDetailsModal.css) --- */
+
+.consultation-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.consultation-list li {
+    background-color: #f9f9f9;
+    border-left: 3px solid #3751ff;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+/* --- Styles pour la liste des consultations (à ajouter ou remplacer) --- */
+
+.consultation-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+/* NOUVEAU : Style pour chaque item de la liste */
+.consultation-item {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #dfe0eb;
+    overflow: hidden; /* Pour que les détails ne dépassent pas les coins arrondis */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.consultation-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* NOUVEAU : Style pour le résumé cliquable */
+.consultation-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: background-color 0.2s;
+}
+
+.consultation-summary:hover {
+    background-color: #f4f7fc;
+}
+
+.consultation-summary strong {
+    color: #3751ff; /* Couleur d'accent */
+}
+
+.consultation-duration {
+    font-weight: bold;
+    font-size: 0.9em;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* NOUVEAU : Style pour les détails qui s'affichent */
+.consultation-details {
+    padding: 15px;
+    background-color: #fdfdfd;
+    border-top: 1px solid #dfe0eb;
+    animation: fadeIn 0.4s;
+}
+
+.consultation-details p {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.consultation-details p:last-child {
+    margin-bottom: 0;
+}
+
+.consultation-details strong {
+    color: #252733;
+}
+
+/* Animation pour l'apparition des détails */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- AJOUT : Styles pour la grille d'informations personnelles --- */
+
+.info-grid {
+    display: grid;
+    /* Crée une grille responsive qui s'adapte à la largeur */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Espace entre les éléments */
+    margin-top: 10px;
+}
+
+.info-grid-item {
+    background-color: #f4f7fc;
+    border: 1px solid #dfe0eb;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.info-grid-item i {
+    font-size: 1.5em;
+    color: #9fa2b4; /* Une couleur neutre */
+    margin-right: 15px;
+}
+
+.info-grid-item-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 1em;
+    font-weight: 500;
+    color: #252733;
+}
+/* --- AJOUT : Styles pour la nouvelle liste de détails dans la colonne de profil --- */
+
+.cv-personal-details-list {
+    margin-top: 10px;
+}
+
+.profile-info-item {
+    display: flex;
+    align-items: flex-start; /* Aligne l'icône avec la première ligne de texte */
+    margin-bottom: 20px;
+}
+
+.profile-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.profile-info-item i {
+    font-size: 1.1em;
+    color: #3751ff; /* Couleur d'accent */
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    margin-top: 2px; /* Petit ajustement vertical */
+}
+
+.profile-info-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info-label {
+    font-size: 0.8em;
+    color: #9fa2b4; /* Plus clair pour moins d'emphase */
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.profile-info-value {
+    font-size: 0.95em;
+    color: #4a4a4a; /* Couleur du texte principal */
+    font-weight: 500;
+}
+
+/* On supprime l'ancien style de grille qui n'est plus utilisé */
+.info-grid, .info-grid-item {
+    /* Vous pouvez supprimer ces règles si elles ne servent plus ailleurs */
+}
+/* --- AJOUT : Styles pour l'image en plein écran --- */
+
+/* L'overlay qui couvre tout et applique le flou */
+.fullscreen-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Un fond noir semi-transparent */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* La propriété magique pour le flou */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Pour la compatibilité avec Safari */
+
+    /* Pour centrer l'image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Doit être au-dessus de la modale */
+    z-index: 2000;
+    cursor: pointer;
+}
+
+/* L'image elle-même */
+.fullscreen-image-overlay img {
+    /* Limite la taille pour ne pas déborder de l'écran */
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+
+    /* Style visuel */
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+
+    /* Animation d'apparition */
+    animation: zoomIn 0.3s ease-out;
+}
+
+/* On rend l'avatar de base cliquable */
+.cv-avatar {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.cv-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(55, 81, 255, 0.5); /* Ombre avec la couleur d'accent */
+}
+
+
+/* Définition de l'animation d'apparition */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.details-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+/* Item de consultation (inchangé mais peut être fusionné avec un style commun) */
+.consultation-item {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #dfe0eb;
+    border-left: 3px solid #28a745; /* Vert pour consultations */
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-in-out;
+}
+.consultation-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.consultation-summary {
+    /* ... (styles existants) ... */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+}
+.consultation-details {
+    /* ... (styles existants) ... */
+    padding: 15px;
+    background-color: #fdfdfd;
+    border-top: 1px solid #dfe0eb;
+    animation: fadeIn 0.4s;
+}
+
+/* NOUVEAU : Style pour un item d'absence */
+.absence-item {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #dfe0eb;
+    border-left: 3px solid #ffc107; /* Jaune pour absences */
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+.absence-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.absence-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+}
+.absence-item {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #dfe0eb;
+    border-left: 3px solid #ffc107; /* Jaune pour absences */
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+.absence-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.absence-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+}
+
+/* MODIFIÉ : Style pour la durée de l'absence */
+.absence-duration {
+    font-weight: bold;
+    font-size: 0.9em;
+    background-color: #ffc107; /* Fond jaune cohérent */
+    color: #333; /* Texte foncé pour la lisibilité */
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.absence-details {
+    padding: 15px;
+    background-color: #fdfdfd;
+    border-top: 1px solid #dfe0eb;
+    animation: fadeIn 0.4s;
+}
+.absence-details p {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+.avatar-loader-wrapper {
+  width: 250px;
+  height: 250px;
+  border-radius: 5%;
+  border: 2px solid #3751ff;
+  background-color: #030129; /* Le fond de votre animation */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden; /* Pour que le texte en rotation ne dépasse pas */
+  margin: 0 auto; /* Pour centrer le bloc lui-même si nécessaire */
+}
+
+/* Styles de l'animation de chargement que vous avez fournis */
+.loading {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.ball {
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  z-index: 2;
+}
+
+.ball::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 20px;
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.ball:nth-child(1) {
+  background-color: #11e793;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s ease-in-out infinite; 
+}
+
+.ball:nth-child(2) {
+  background-color: #d035f7;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+}
+
+.ball:nth-child(3) {
+  background-color: #ff459f;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ball:nth-child(4) {
+  background-color: #0ba5ff;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.loading-text {
+  position: absolute;
+  /* Ajustements pour centrer le SVG de 180x180 dans un conteneur de 120x120 */
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  transform: translate(-50%, -50%); /* Centrage parfait */
+  animation: rotateText 8s linear infinite; /* 'linear' est souvent mieux pour une rotation continue */
+  z-index: 1;
+}
+
+@keyframes rotateText {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: 30px;
+  }
+  25% {
+    top: 40px;
+  }
+  50% {
+    top: 25px; 
+  }
+  75% {
+    top: 35px;
+  }
+  100% {
+    top: 30px; 
+  }
+}
+
+/* Le pseudo-élément ::before ne s'applique pas à <svg>, ces règles n'auront pas d'effet */
+.loading-text::before {
+  content: '';
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 2px;
+  background-color: #000;
+  opacity: 0.5;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.loading-text::before:nth-child(1) { background-color: #11e793; }
+.loading-text::before:nth-child(2) { background-color: #d035f7; }
+.loading-text::before:nth-child(3) { background-color: #ff459f; }
+.loading-text::before:nth-child(4) { background-color: #0ba5ff; }
+/* --- Styles pour les Sanctions (Ajouter à la fin du fichier) --- */
+
+/* Style pour l'état "Non Sanctionné" */
+.sanction-clean {
+    background-color: #e8f5e9; /* Vert très clair */
+    color: #2e7d32; /* Vert foncé */
+    border: 1px solid #a5d6a7;
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.sanction-clean i {
+    font-size: 1.5em;
+    margin-right: 12px;
+}
+
+/* Conteneur global si sanctionné */
+.sanction-container {
+    border: 1px solid #ffcdd2;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* En-tête d'alerte rouge */
+.sanction-alert-header {
+    background-color: #ffebee; /* Rouge très clair */
+    color: #c62828; /* Rouge foncé */
+    padding: 12px 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ffcdd2;
+}
+
+.sanction-alert-header i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Item individuel de sanction */
+.sanction-item {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sanction-item:last-child {
+    border-bottom: none;
+}
+
+.sanction-item:hover {
+    background-color: #fff8f8; /* Légère teinte rouge au survol */
+}
+
+/* Résumé visible tout le temps (Taux + Date) */
+.sanction-summary {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sanction-summary strong {
+    color: #d32f2f; /* Rouge pour le titre de la punition */
+}
+
+.sanction-date {
+    font-size: 0.85em;
+    color: #757575;
+    background-color: #f5f5f5;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* Détails qui s'affichent au clic */
+.sanction-details {
+    padding: 15px;
+    background-color: #fafafa;
+    border-top: 1px dashed #e0e0e0;
+    animation: fadeIn 0.3s ease-in;
+    font-size: 0.9em;
+}
+
+.sanction-motif-text {
+    white-space: pre-wrap; /* Conserve les retours à la ligne du motif */
+    color: #424242;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.text-muted {
+    color: #9e9e9e;
+    font-style: italic;
+    font-size: 0.9em;
+}

@@ -1,0 +1,182 @@
+/* src/components/ConfigurationModal.css */
+.config-container {
+    display: flex;
+    min-height: 400px;
+}
+
+.config-tabs {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ccc;
+    padding-right: 15px;
+    margin-right: 15px;
+}
+
+.tab-button {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.config-content {
+    flex-grow: 1;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.global-coeff-group {
+    background-color: #e9f5ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.global-coeff-group label {
+    font-weight: bold;
+    margin: 0;
+}
+
+.global-coeff-group input {
+    width: 80px;
+    text-align: center;
+}
+
+
+.matiere-coeffs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.matiere-coeffs-grid .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.matiere-coeffs-grid .form-group label {
+    margin-bottom: 5px;
+}
+.matiere-config-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.matiere-config-item label {
+    flex-grow: 1;
+    margin: 0;
+    cursor: pointer;
+}
+
+.matiere-config-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.matiere-config-item input[type="number"] {
+    width: 80px;
+}
+/* DANS src/components/ConfigurationModal.css (à la fin) */
+
+.add-model-form {
+    display: flex;
+    margin-top: 15px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.add-model-form input {
+    flex-grow: 1;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.add-model-form button {
+    background-color: #28a745;
+    color: white;
+    border: 1px solid #28a745;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0 12px;
+}
+
+.add-model-form button:hover {
+    background-color: #218838;
+}
+
+.delete-model-section {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    text-align: right;
+}
+
+.btn-delete-model {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.btn-delete-model:hover {
+    background-color: #c82333;
+}
+/* AJOUTER À LA FIN DE src/components/ConfigurationModal.css */
+
+.add-matiere-form {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.add-matiere-form input {
+    flex-grow: 1;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    font-size: 1rem;
+}
+
+.add-matiere-form button {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0 15px;
+    white-space: nowrap; /* Empêche le texte du bouton de passer à la ligne */
+}
+
+.add-matiere-form button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,86 @@
+/* Styles pour la notification Toast, basés sur votre exemple */
+#toast {
+    visibility: hidden;
+    min-width: 50px; /* Commence petit */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    position: fixed;
+    z-index: 10001; /* Au-dessus de tout, même des modales */
+    left: 50%;
+    transform: translateX(-50%); /* Centrage horizontal parfait */
+    bottom: 30px;
+    font-size: 1rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#toast #img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    box-sizing: border-box;
+    background-color: #0056b3; /* Couleur plus en phase avec le thème */
+    color: #fff;
+    border-radius: 10px 0 0 10px; /* Arrondi seulement à gauche */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#toast #desc {
+    color: #fff;
+    padding: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block; /* Pour que le conteneur s'adapte au texte */
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 4s 1s, shrink 0.5s 5s, fadeout 0.5s 5.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s, stay 4s 1s, shrink 0.5s 5s, fadeout 0.5s 5.5s;
+}
+
+/* Animations Keyframes (identiques à votre exemple) */
+@-webkit-keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+@-webkit-keyframes expand {
+    from { min-width: 50px; }
+    to { min-width: 350px; }
+}
+@keyframes expand {
+    from { min-width: 50px; }
+    to { min-width: 350px; }
+}
+@-webkit-keyframes stay {
+    from { min-width: 350px; }
+    to { min-width: 350px; }
+}
+@keyframes stay {
+    from { min-width: 350px; }
+    to { min-width: 350px; }
+}
+@-webkit-keyframes shrink {
+    from { min-width: 350px; }
+    to { min-width: 50px; }
+}
+@keyframes shrink {
+    from { min-width: 350px; }
+    to { min-width: 50px; }
+}
+@-webkit-keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+@keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}

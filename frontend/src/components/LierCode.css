@@ -1,0 +1,288 @@
+/* Fichier : src/components/LierCode.css - Version améliorée */
+
+.lier-code-container {
+  max-width: 900px;
+  margin: 0 auto; /* Centre le contenu horizontalement dans la page */
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* --- Amélioration de la grille des compteurs --- */
+.compteurs-grid {
+  width: 100%;
+  max-width: 700px; /* Légèrement plus large */
+  display: grid;
+  /* La première colonne prend 2x plus de place que les deux autres */
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+}
+
+.stat-box {
+  background: rgb(95 114 191 / 40%);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(74, 108, 247, 0.2);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(74, 108, 247, 0.25);
+}
+
+
+.stat-box span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #141313;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+
+.lier-code-form {
+  width: 100%;
+  max-width: 700px; /* Taille confortable pour un formulaire */
+}
+
+
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.search-result-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.search-result-item:hover {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+/* --- Amélioration des messages d'alerte --- */
+.message {
+  text-align: left; /* Alignement à gauche pour l'icône et le texte */
+  padding: 12px 16px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  display: flex; /* Pour aligner icône et texte */
+  align-items: center;
+  gap: 10px; /* Espace entre icône et texte */
+}
+
+.message.success {
+  color: var(--success-hover-color);
+  background-color: #d1fae5; /* Vert pastel */
+  border: 1px solid #a7f3d0;
+}
+
+.message.error {
+  color: var(--danger-hover-color);
+  background-color: #fee2e2; /* Rouge pastel */
+  border: 1px solid #fecaca;
+}
+
+.message svg {
+  min-width: 16px; /* Empêche l'icône de se rétrécir */
+}
+/* ... (votre CSS existant) ... */
+
+/* Styles pour le champ de code avec préfixe */
+.code-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa; /* Fond légèrement grisé pour le préfixe */
+}
+
+.code-input-wrapper:focus-within {
+    border-color: #2c5282;
+    box-shadow: 0 0 0 2px rgba(44, 82, 130, 0.2);
+}
+
+.code-prefix {
+    padding: 0 12px;
+    font-weight: bold;
+    color: #4a5568;
+    background-color: #e9ecef;
+    border-right: 1px solid #ccc;
+    height: 40px; /* Aligner avec la hauteur de l'input */
+    display: flex;
+    align-items: center;
+}
+
+.code-input-wrapper input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    background-color: white;
+    flex-grow: 1; /* L'input prend le reste de la place */
+    border-radius: 0 4px 4px 0; /* Arrondir seulement les coins droits */
+}
+
+/* Assurez-vous que l'input désactivé a un style approprié */
+.code-input-wrapper input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+/* ... (votre CSS existant) ... */
+
+/* Améliorations pour la modale d'édition */
+.modal-content.large {
+  max-width: 950px; /* On élargit la modale pour le confort */
+}
+
+.actions-cell {
+  white-space: nowrap; /* Empêche les boutons de passer à la ligne */
+  width: 100px; /* Donne une largeur fixe */
+  text-align: center;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 5px;
+  font-size: 1.1rem;
+}
+
+.btn-icon:hover {
+  opacity: 0.7;
+}
+
+/* Conteneur pour le champ de recherche dans la modale */
+.search-container-modal {
+  position: relative;
+  width: 100%;
+}
+
+.search-container-modal input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box; /* S'assure que le padding ne dépasse pas */
+}
+
+/* La liste de résultats doit s'afficher par-dessus les autres lignes */
+.search-container-modal .search-results {
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 2px;
+}
+/* ... (votre CSS existant) ... */
+
+/* Style pour le bouton d'aide du tutoriel */
+.help-button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 2rem; /* Taille de l'icône */
+  z-index: 100;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.help-button:hover {
+  opacity: 1;
+}
+/* Fichier : src/components/LierCode.css - AJOUTS */
+
+/* Style pour le bouton secondaire (Anomalie) */
+.btn-secondary {
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+  color: white;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Styles pour la modale des anomalies */
+.anomalie-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.anomalie-form {
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+}
+
+.anomalie-form h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.anomalie-list h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.anomalie-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.anomalie-toolbar .form-group {
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+.anomalie-toolbar button {
+  white-space: nowrap;
+}

@@ -1,0 +1,211 @@
+.creer-codes-container {
+    padding: 2rem;
+}
+
+.generation-section, .historique-section {
+    background-color: #f4f7fa;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.historique-section {
+    margin-top: 2.5rem;
+}
+
+.creer-codes-container h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+.creer-codes-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group select,
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    padding: 0.9rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.btn-primary:disabled { background-color: #aaa; cursor: not-allowed; }
+.btn-primary:hover:not(:disabled) { background-color: #0056b3; }
+
+.message { padding: 1rem; border-radius: 4px; margin-top: 1rem; }
+.error-message { background-color: #f8d7da; color: #721c24; }
+.success-message { background-color: #d4edda; color: #155724; }
+
+/* --- Style du Modal --- */
+.modal-backdrop {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%; /* Agrandir le modal */
+    max-width: 1100px; /* Limite maximale */
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+.modal-content h2 { margin-top: 0; }
+.modal-body { 
+    overflow-y: auto; 
+    flex-grow: 1; 
+    padding: 1rem; 
+    border-top: 1px solid #eee; 
+    border-bottom: 1px solid #eee; 
+}
+.modal-footer { margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; }
+.btn-secondary { background-color: #6c757d; color: white; padding: 0.8rem 1.2rem; border: none; border-radius: 4px; cursor: pointer; }
+
+
+/* --- NOUVEAU STYLE POUR LA GRILLE DE CODES --- */
+.modal-body .print-grid {
+    display: grid;
+    /* 3 paires de 2 colonnes = 6 colonnes */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px 5px; /* Plus d'espace vertical, moins horizontal */
+}
+
+.modal-body .code-item {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1.5px solid black; /* Bordure plus visible */
+    padding: 10px 5px;
+    font-size: 16px; /* Police agrandie */
+    font-weight: bold;
+    text-align: center;
+    overflow-wrap: break-word; /* Coupe le mot si trop long */
+}
+
+.modal-body h3 {
+    grid-column: 1 / -1; /* Le titre prend toute la largeur */
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* --- Style de l'Historique (inchangé) --- */
+.historique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.lot-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+.lot-card-header { background-color: #007bff; color: white; padding: 1rem; border-radius: 8px 8px 0 0; }
+.lot-card-header h3 { margin: 0; font-size: 1.2rem; }
+.lot-card-header span { font-size: 0.9rem; opacity: 0.9; }
+.lot-card-body { padding: 1rem; flex-grow: 1; }
+.lot-card-body p { margin: 0.5rem 0; color: #555; }
+.lot-card-footer { padding: 1rem; border-top: 1px solid #eee; }
+.lot-card-footer button { background-color: #28a745; width: 100%; }
+.lot-card-footer button:hover { background-color: #218838; }
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* ... (tous les styles précédents) ... */
+
+/* --- Style du Footer de la Carte d'Historique --- */
+.lot-card-footer {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex; /* Aligne les boutons horizontalement */
+    gap: 1rem; /* Espace entre les boutons */
+}
+
+.lot-card-footer button {
+    width: 100%; /* Les boutons se partagent l'espace */
+    padding: 0.7rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.lot-card-footer button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-success { background-color: #28a745; }
+.btn-success:hover:not(:disabled) { background-color: #218838; }
+
+.btn-danger { background-color: #dc3545; }
+.btn-danger:hover:not(:disabled) { background-color: #c82333; }
+
+
+/* --- Style du Modal de Suppression --- */
+.delete-modal-content {
+    text-align: center;
+    max-width: 500px; /* Plus petit et centré */
+    width: 90%;
+    height: auto;
+}
+
+.delete-modal-content h2 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.delete-modal-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
